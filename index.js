@@ -28,7 +28,7 @@ app.use(cors());
 app.post("/sighting", SightingCtrl.create);
 app.get("/sighting", SightingCtrl.read);
 app.put("/sighting/:id", SightingCtrl.update);
-app.delete("/sighting/:id", SightingCtrl.delete);
+app.delete("/sighting/:id", SightingCtrl.delete); //to delete, do /sighting/545439058439t734 not /sighting?id=483294890324
 
 // Connections
 var port = 8000;
