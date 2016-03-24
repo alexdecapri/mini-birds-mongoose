@@ -12,6 +12,9 @@ var Schema = mongoose.Schema;
 var mongoUri = "mongodb://localhost:27017/mini-birds-mongoose";
 mongoose.set("debug", true); //logs stuff in terminal through node or nodemon
 mongoose.connect(mongoUri);
+mongoose.connection.once("open", function() {
+  console.log("connected to mongoDB at " + port);
+}); //once connection is made, invoke callback function
 
 
 // Express
