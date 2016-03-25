@@ -22,7 +22,7 @@ module.exports = {
     });
   },
   update: function(req, res) { //why not query right below, why use params? BECAUSE we used "/sighting/:id" as the route on index.js!
-    //how do we have access to params again??
+    //how do we have access to params again??  Express
     Sighting.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
       if (err) {
         return res.status(500).send(err);

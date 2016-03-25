@@ -17,4 +17,7 @@ var sightingModel = new mongoose.Schema ({
 });
 
 //double check on what this name actually relates to
-module.exports = mongoose.model("Sighting", sightingModel);
+module.exports = mongoose.model("Sightings", sightingModel);
+//"Sighting" should be the name that the collection is - look in Robomongo
+//but for some reason, mine isn't
+//preivously was Sighting, but made it plural because it's a collection
