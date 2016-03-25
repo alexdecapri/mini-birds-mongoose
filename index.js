@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Endpoints
-app.post("/sighting", SightingCtrl.create); //don't have to invoke create?
+app.post("/sighting", SightingCtrl.create); //don't have to invoke this since it's a method on an object
 app.get("/sighting", SightingCtrl.read);
 app.put("/sighting/:id", SightingCtrl.update);
 app.delete("/sighting/:id", SightingCtrl.delete); //to delete, do /sighting/545439058439t734 not /sighting?id=483294890324
