@@ -6,6 +6,7 @@ var mongoose = require("mongoose");
 
 // Controllers
 var SightingCtrl = require("./controllers/SightingCtrl");
+var UserCtrl = require("./controllers/UserCtrl");
 
 // Mongo
 var Schema = mongoose.Schema;
@@ -29,6 +30,13 @@ app.post("/sighting", SightingCtrl.create); //don't have to invoke this since it
 app.get("/sighting", SightingCtrl.read);
 app.put("/sighting/:id", SightingCtrl.update);
 app.delete("/sighting/:id", SightingCtrl.delete); //to delete, do /sighting/545439058439t734 not /sighting?id=483294890324
+
+app.post("/user", UserCtrl.create);
+app.get("/user", UserCtrl.read);
+app.put("/user:id", UserCtrl.update);
+app.delete("/user:id", UserCtrl.delete);
+
+
 
 // Connections
 var port = 8000;

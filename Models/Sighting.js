@@ -8,7 +8,7 @@ var birdModel = require("./Bird");
 
 var sightingModel = new mongoose.Schema ({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "Users" }, //don't have to require User.js to access this
-  bird: [birdModel], //this is embedded, user is referential
+  bird: [birdModel], //this is embedded, while user is referential
   confirmed: { type: Boolean, default: false },
   numberSeen: { type: Number, min: 1 }
 });

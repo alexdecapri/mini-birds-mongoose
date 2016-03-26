@@ -5,10 +5,11 @@ var userModel = new mongoose.Schema({
   username: String,
   level: Number,
   location: String,
-  Member: Number
+  member: { type: Boolean, default: false },
+  updatedAt: Date
 });
 
-userModel.pre("save", function(next) { //fires BEFORE a user is saved
+userModel.pre("save", function(next) { //hook that fires BEFORE a user is saved
   var user = this;
   user.updatedAt = new Date();
   next();

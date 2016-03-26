@@ -13,13 +13,16 @@ module.exports = {
   },
 
   read: function(req, res) {
-    Sighting.find(req.query).exec(function(err, result) {
-      if (err) {
-        return res.status(500).send(err);
-      } else {
-        res.send(result)
-      }
-    });
+    console.log("req.query: " + req.query);
+    Sighting.find(req.query)
+      .populate("user")
+      .exec(function(err, result) {
+        if (err) {
+          return res.status(500).send(err);
+        } else {
+          res.send(result)
+        }
+      });
   },
   update: function(req, res) { //why not query right below, why use params? BECAUSE we used "/sighting/:id" as the route on index.js!
     //how do we have access to params again??  Express
