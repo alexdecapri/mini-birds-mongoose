@@ -1,17 +1,14 @@
 var mongoose = require("mongoose");
+var birdModel = require("./Bird");
+
+//or could do
+//var Schema = mongoose.Schema;
+//new Schema ({
+//type: Schema.Types.ObjectId
 
 var sightingModel = new mongoose.Schema ({
-  name: { type: String, lowercase: true },
-  order: { type: String, maxlength: 20  },
-  status: {
-    type: String,
-    lowercase: true,
-    enum: [
-      "least concern",
-      "extinct",
-      "near threatened"
-    ]
-  },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "Users" }, //don't have to require User.js to access this
+  bird: [birdModel], //this is embedded, user is referential
   confirmed: { type: Boolean, default: false },
   numberSeen: { type: Number, min: 1 }
 });

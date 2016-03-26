@@ -7,3 +7,11 @@ var userModel = new mongoose.Schema({
   location: String,
   Member: Number
 });
+
+userModel.pre("save", function(next) { //fires BEFORE a user is saved
+  var user = this;
+  user.updatedAt = new Date();
+  next();
+});
+
+module.exports = mongoose.model("Users", userModel);
