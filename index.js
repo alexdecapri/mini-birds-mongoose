@@ -7,6 +7,7 @@ var mongoose = require("mongoose");
 // Controllers
 var SightingCtrl = require("./controllers/SightingCtrl");
 var UserCtrl = require("./controllers/UserCtrl");
+var BirdCtrl = require("./controllers/BirdCtrl");
 
 // Mongo
 var Schema = mongoose.Schema;
@@ -33,8 +34,13 @@ app.delete("/sighting/:id", SightingCtrl.delete); //to delete, do /sighting/5454
 
 app.post("/user", UserCtrl.create);
 app.get("/user", UserCtrl.read);
-app.put("/user:id", UserCtrl.update);
-app.delete("/user:id", UserCtrl.delete);
+app.put("/user/:id", UserCtrl.update);
+app.delete("/user/:id", UserCtrl.delete);
+
+app.post("/bird", BirdCtrl.create);
+app.get("/bird", BirdCtrl.read);
+app.put("/bird/:id", BirdCtrl.update);
+app.delete("/bird/:id", BirdCtrl.delete);
 
 
 
